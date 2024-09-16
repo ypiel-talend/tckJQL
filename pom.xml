@@ -15,7 +15,8 @@
     <description>A generated component project</description>
 
     <properties>
-        <talend.scan.scannedDependencies>org.talend.components:http-common,org.talend.components:stream-api</talend.scan.scannedDependencies>
+        <talend.scan.scannedDependencies>org.talend.components:http-common,org.talend.components:stream-api
+        </talend.scan.scannedDependencies>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <talend.documentation.htmlAndPdf>false</talend.documentation.htmlAndPdf>
         <talend.component.studioHome/>
@@ -39,6 +40,30 @@
             <version>1.18.34</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>org.talend.sdk.component</groupId>
+            <artifactId>component-runtime-manager</artifactId>
+            <version>1.64.7</version>
+            <scope>test</scope>
+        </dependency>        <dependency>
+            <groupId>org.talend.sdk.component</groupId>
+            <artifactId>component-runtime-junit</artifactId>
+            <version>1.64.7</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.talend.sdk.component</groupId>
+            <artifactId>component-runtime-http-junit</artifactId>
+            <version>1.64.7</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.10.3</version>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
 
     <build>

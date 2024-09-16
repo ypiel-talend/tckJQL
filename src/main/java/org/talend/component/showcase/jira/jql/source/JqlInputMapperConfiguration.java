@@ -9,14 +9,21 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @GridLayout({
     @GridLayout.Row({ "dataset" }),
     @GridLayout.Row({ "relation" }),
     @GridLayout.Row({ "filters" })
+})
+@GridLayout(names = GridLayout.FormType.ADVANCED, value = {
+        @GridLayout.Row({ "dataset" })
 })
 @Documentation("TODO fill the documentation for this configuration")
 public class JqlInputMapperConfiguration implements Serializable {
@@ -33,6 +40,8 @@ public class JqlInputMapperConfiguration implements Serializable {
     private RELATION relation;
 
     @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
     @GridLayout({
             @GridLayout.Row({ "attribute", "value" })
     })

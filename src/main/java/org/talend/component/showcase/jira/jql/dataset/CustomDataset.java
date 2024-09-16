@@ -14,10 +14,13 @@ import lombok.Data;
 @Data
 @DataSet("CustomDataset")
 @GridLayout({
-    // the generated layout put one configuration entry per line,
-    // customize it as much as needed
     @GridLayout.Row({ "datastore" }),
     @GridLayout.Row({ "project" })
+})
+@GridLayout(names = GridLayout.FormType.ADVANCED, value = {
+        @GridLayout.Row({ "datastore" }),
+        @GridLayout.Row({ "onlySameHost" }),
+        @GridLayout.Row({ "factor" })
 })
 @Documentation("TODO fill the documentation for this configuration")
 public class CustomDataset implements Serializable {
@@ -28,5 +31,13 @@ public class CustomDataset implements Serializable {
     @Option
     @Documentation("TODO fill the documentation for this parameter")
     private String project;
+
+    @Option
+    @Documentation("Exponential backoff factor.")
+    private int factor;
+
+    @Option
+    @Documentation("Redirection only on same host")
+    private boolean onlySameHost;
 
 }

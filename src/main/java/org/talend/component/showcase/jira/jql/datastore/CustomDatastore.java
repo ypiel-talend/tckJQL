@@ -4,7 +4,9 @@ import java.io.Serializable;
 
 import org.talend.sdk.component.api.configuration.Option;
 import org.talend.sdk.component.api.configuration.type.DataStore;
+import org.talend.sdk.component.api.configuration.ui.DefaultValue;
 import org.talend.sdk.component.api.configuration.ui.layout.GridLayout;
+import org.talend.sdk.component.api.configuration.ui.widget.Credential;
 import org.talend.sdk.component.api.meta.Documentation;
 
 import lombok.Data;
@@ -12,10 +14,12 @@ import lombok.Data;
 @Data
 @DataStore("CustomDatastore")
 @GridLayout({
-    // the generated layout put one configuration entry per line,
-    // customize it as much as needed
     @GridLayout.Row({ "baseURL" }),
     @GridLayout.Row({ "pat" })
+})
+@GridLayout(names = GridLayout.FormType.ADVANCED, value = {
+        @GridLayout.Row({ "connectionTimeout" }),
+        @GridLayout.Row({ "readTimeout" })
 })
 @Documentation("TODO fill the documentation for this configuration")
 public class CustomDatastore implements Serializable {
@@ -24,7 +28,18 @@ public class CustomDatastore implements Serializable {
     private java.net.URL baseURL;
 
     @Option
+    @Credential
     @Documentation("TODO fill the documentation for this parameter")
     private String pat;
+
+    @Option
+    @Documentation("Connection timeout.")
+    @DefaultValue("1000")
+    private int connectionTimeout = 1000;
+
+    @Option
+    @Documentation("Read timeout.")
+    @DefaultValue("1000")
+    private int readTimeout = 1000;
 
 }
