@@ -44,15 +44,45 @@
   </dependencies>
 
   <build>
-    <extensions>
-      <extension>
+        <plugins>
+
+            <plugin>
         <groupId>org.talend.sdk.component</groupId>
         <artifactId>talend-component-maven-plugin</artifactId>
         <version>1.64.7</version>
-      </extension>
-    </extensions>
+                <executions>
+                    <execution>
+                        <id>talend-svg2png</id>
+                        <goals>
+                            <goal>svg2png</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>talend-component-bundle</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>car</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>talend-scan-descriptor</id>
+                        <goals>
+                            <goal>scan-descriptor</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>talend-component-validate</id>
+                        <phase>process-classes</phase>
+                        <goals>
+                            <goal>validate</goal>
+                        </goals>
+                        <configuration>
+                            <validateLegacyIcons>true</validateLegacyIcons>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
 
-    <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
