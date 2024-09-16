@@ -9,6 +9,9 @@ import org.talend.sdk.component.api.configuration.type.DataSet;
 import org.talend.sdk.component.api.configuration.ui.layout.GridLayout;
 import org.talend.sdk.component.api.meta.Documentation;
 
+import lombok.Data;
+
+@Data
 @DataSet("CustomDataset")
 @GridLayout({
     // the generated layout put one configuration entry per line,
@@ -26,21 +29,4 @@ public class CustomDataset implements Serializable {
     @Documentation("TODO fill the documentation for this parameter")
     private String project;
 
-    public CustomDatastore getDatastore() {
-        return datastore;
-    }
-
-    public CustomDataset setDatastore(CustomDatastore datastore) {
-        this.datastore = datastore;
-        return this;
-    }
-
-    public String getProject() {
-        return project;
-    }
-
-    public CustomDataset setProject(String project) {
-        this.project = project;
-        return this;
-    }
 }

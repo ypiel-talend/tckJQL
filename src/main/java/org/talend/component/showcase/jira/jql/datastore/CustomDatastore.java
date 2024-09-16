@@ -7,6 +7,9 @@ import org.talend.sdk.component.api.configuration.type.DataStore;
 import org.talend.sdk.component.api.configuration.ui.layout.GridLayout;
 import org.talend.sdk.component.api.meta.Documentation;
 
+import lombok.Data;
+
+@Data
 @DataStore("CustomDatastore")
 @GridLayout({
     // the generated layout put one configuration entry per line,
@@ -24,21 +27,4 @@ public class CustomDatastore implements Serializable {
     @Documentation("TODO fill the documentation for this parameter")
     private String pat;
 
-    public java.net.URL getBaseURL() {
-        return baseURL;
-    }
-
-    public CustomDatastore setBaseURL(java.net.URL baseURL) {
-        this.baseURL = baseURL;
-        return this;
-    }
-
-    public String getPat() {
-        return pat;
-    }
-
-    public CustomDatastore setPat(String pat) {
-        this.pat = pat;
-        return this;
-    }
 }
