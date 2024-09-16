@@ -6,15 +6,17 @@ import org.talend.sdk.component.api.configuration.ui.layout.GridLayout;
 import org.talend.sdk.component.api.meta.Documentation;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import lombok.Data;
 
 
 @Data
 @GridLayout({
-    // the generated layout put one configuration entry per line,
-    // customize it as much as needed
-    @GridLayout.Row({ "dataset" })
+    @GridLayout.Row({ "dataset" }),
+    @GridLayout.Row({ "relation" }),
+    @GridLayout.Row({ "filters" })
 })
 @Documentation("TODO fill the documentation for this configuration")
 public class JqlInputMapperConfiguration implements Serializable {
@@ -22,5 +24,39 @@ public class JqlInputMapperConfiguration implements Serializable {
     @Documentation("TODO fill the documentation for this parameter")
     private CustomDataset dataset;
 
+    @Option
+    @Documentation("JQL filters.")
+    private List<Filter> filters = new ArrayList<>();
+
+    @Option
+    @Documentation("JQL attribute relation.")
+    private RELATION relation;
+
+    @Data
+    @GridLayout({
+            @GridLayout.Row({ "attribute", "value" })
+    })
+    public static class Filter{
+
+        @Option
+        @Documentation("The JQL attribute.")
+        private ATTRIBUTE attribute;
+
+        @Option
+        @Documentation("The JQL attribute value.")
+        private String value;
+    }
+
+    public enum ATTRIBUTE {
+        ID,
+        SUMMARY,
+        COMMENT,
+        REPORTER,
+        ASSIGNEE
+    }
+
+    public enum RELATION {
+        AND, OR
+    }
 
 }
