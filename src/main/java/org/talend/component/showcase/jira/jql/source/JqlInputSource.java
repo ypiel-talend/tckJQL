@@ -130,6 +130,7 @@ public class JqlInputSource extends AbstractHTTPInput<JqlInputMapperConfiguratio
         dse.setOutputKeyValuePairs(true);
         dse.setKeyValuePairs(Arrays.asList(
                 new Param("id", " {.response.id}"),
+                new Param("key", " {.response.key}"),
                 new Param("status",  "{.response.fields.status.name}"),
                 new Param("summary", "{.response.fields.summary}"),
                 new Param("reporter","{.response.fields.reporter.name}")

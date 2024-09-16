@@ -58,6 +58,7 @@ public class JqlInputMapperConfiguration implements Serializable {
 
     public enum ATTRIBUTE {
         ID("id = '%s'"),
+        STATUS("status = %s"),
         SUMMARY("summary ~ %s"),
         COMMENT("comment ~ %s"),
         REPORTER("reporter = %s"),
