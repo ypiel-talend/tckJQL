@@ -48,11 +48,21 @@ public class JqlInputMapperConfiguration implements Serializable {
     }
 
     public enum ATTRIBUTE {
-        ID,
-        SUMMARY,
-        COMMENT,
-        REPORTER,
-        ASSIGNEE
+        ID("id = '%s'"),
+        SUMMARY("summary ~ %s"),
+        COMMENT("comment ~ %s"),
+        REPORTER("reporter = %s"),
+        ASSIGNEE("assignee = %s ");
+
+        private String format;
+
+        ATTRIBUTE(String format){
+            this.format = format;
+        }
+
+        public String getFormat(){
+            return this.format;
+        }
     }
 
     public enum RELATION {
